@@ -33,9 +33,14 @@ public class ServerRest {
             // Crea il server sulla porta specificata
             HttpServer server = HttpServer.create(new InetSocketAddress(porta), 0);
             
-            // Registra gli handler per gli endpoint
-            server.createContext("/api/calcola/post", new PostHandler());
-            server.createContext("/api/calcola/get", new GetHandler());
+
+            // API Versione 2
+            server.createContext("/api/v2/calcola/post", new PostHandlerV2());
+            server.createContext("/api/v2/calcola/get", new GetHandlerV2());
+
+            // Endpoint legacy (compatibilità)
+            server.createContext("/api/calcola/post", new PostHandlerV2());
+            server.createContext("/api/calcola/get", new GetHandlerV2());
             
             // Endpoint di benvenuto
             server.createContext("/", ServerRest::gestisciBenvenuto);

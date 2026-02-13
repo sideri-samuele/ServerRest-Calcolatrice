@@ -49,11 +49,11 @@ public class CalcolatriceService {
                     throw new IllegalArgumentException("Divisione per zero non consentita");
                 }
                 return operando1 / operando2;
-                
+
             default:
                 throw new IllegalArgumentException(
                     "Operatore non valido: " + operatore + 
-                    ". Operatori consentiti: SOMMA, SOTTRAZIONE, MOLTIPLICAZIONE, DIVISIONE"
+                    ". Operatori consentiti: SOMMA, SOTTRAZIONE, MOLTIPLICAZIONE, DIVISIONE, RADICE, MODULO, POTENZA"
                 );
         }
     }
